@@ -1,0 +1,68 @@
+{
+   "index_patterns" : ["logs-office365-audit*"],
+    "mappings": {
+      "doc": {
+       "properties": {
+         "geoip": {
+            "dynamic": true,
+            "properties": {
+              "ip": {
+                "type": "ip"
+              },
+              "location": {
+                "type": "geo_point"
+              },
+              "latitude": {
+                "type": "half_float"
+              },
+              "longitude": {
+                "type": "half_float"
+                  }
+                }
+              },
+          "Actor": {
+            "type": "object",
+            "properties": {
+              "ID": {"type": "keyword"},
+              "Type": {"type": "keyword"}
+              }
+            },
+          "ActorContextId": {"type": "keyword"},
+          "ActorIpAddress": {"type": "ip"},
+          "ApplicationId": {"type": "keyword"},
+          "AzureActiveDirectoryEventType": {"type": "keyword"},
+          "ClientIP": {"type": "ip"},
+          "ExtendedProperties": {
+            "type": "object",
+            "properties": {
+              "Name": {"type": "keyword"},
+              "Value": {"type": "keyword"}
+              }
+            },
+          "Id": {"type": "keyword"},
+          "InterSystemsId": {"type": "keyword"},
+          "IntraSystemId": {"type": "keyword"},
+          "LogonError": {"type": "keyword"},
+          "ObjectId": {"type": "keyword"},
+          "Operation": {"type": "keyword"},
+          "OrganizationId": {"type": "keyword"},
+          "RecordType": {"type": "keyword"},
+          "ResultStatus": {"type": "keyword"},
+          "Target": {
+            "type": "object",
+            "properties": {
+              "ID": {"type": "keyword"},
+              "Type": {"type": "keyword"}
+              }
+            },
+          "UserType": {"type": "keyword"},
+          "Version": {"type": "keyword"},
+          "TargetContextId": {"type": "keyword"},
+          "UserId": {"type": "keyword"},
+          "UserKey": {"type": "keyword"},
+          "UserType": {"type": "keyword"},
+          "Workload": {"type": "keyword"}
+            }
+          }
+        }
+  }
