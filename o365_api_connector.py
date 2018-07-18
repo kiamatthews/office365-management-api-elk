@@ -55,12 +55,13 @@ def process():
                     # Close Logstash TCP connection
                     sock.close()
 
-            elif response.status_code == 500:
+            elif event_blob.status_code == 500:
                 #print to stdout for use in Rundeck
                 print ("URI query - Status code: " + str(event_blob.status_code))
-                print (response.json())
+                print (event_blob.json())
                 #print to logfile
                 logging.error("API status code: {} {} {} [content query]".format(event_blob.status_code, event_blob.json()['error']['code'], event_blob.json()['error']['message']))
+                sys.exit() #comment this out to test if only some of the uri queries are returning errors
 
             else:
                 #print to stdout for use in Rundeck
@@ -68,7 +69,7 @@ def process():
                 print (event_blob.json())
                 #print to logfile
                 logging.error("API status code: {} {} [uri query]".format(event_blob.status_code, event_blob.json()['Message']))
-                sys.exit()
+                sys.exit() #comment this out to test if only some of the uri queries are returning errors
 
     elif response.status_code == 500:
         #print to stdout for use in Rundeck
