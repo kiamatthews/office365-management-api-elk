@@ -98,7 +98,7 @@ token = context.acquire_token_with_client_certificate(
 #null access token check
 if token['accessToken'] == None:
     logging.error("Null Access Token")
-    #alert sec@lqdt.com
+    #alert email@email.com
 
 else:
     #add access token to header
