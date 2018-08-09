@@ -68,7 +68,7 @@ def process():
                 print ("URI query - Status code: " + str(event_blob.status_code))
                 print (event_blob.json())
                 #print to logfile
-                logging.error("API status code: {} {} [uri query]".format(event_blob.status_code, event_blob.json()['Message']))
+                logging.error("API status code: {} {} [uri query]".format(event_blob.status_code, event_blob.json()['message']))
                 sys.exit() #comment this out to test if only some of the uri queries are returning errors
 
     elif response.status_code == 500:
@@ -83,7 +83,7 @@ def process():
         print ("Content query - Status code: " + str(response.status_code))
         print (response.json())
         #print to logfile
-        logging.error("API status code: {} {} [content query]".format(response.status_code, response.json()['Message']))
+        logging.error("API status code: {} {} [content query]".format(response.status_code, response.json()['message']))
 
 ###### MAIN ######
 
